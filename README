@@ -22,28 +22,28 @@ SYNOPSIS
        done_testing();
 
 DESCRIPTION
-    Starting with Perl 5.10, it is possible to create a lexical version of
-    the Perl default variable $_. Certain Perl constructs like the "given"
-    keyword automatically use a lexical $_ rather than the global $_.
+    Starting with Perl 5.10, it is possible to create a lexical version of the
+    Perl default variable $_. Certain Perl constructs like the `given` keyword
+    automatically use a lexical $_ rather than the global $_.
 
-    It is occasionallly useful for a sub to be able to access its caller's
-    $_ variable regardless of whether it was lexical or not. The "(_)" sub
+    It is occasionallly useful for a sub to be able to access its caller's $_
+    variable regardless of whether it was lexical or not. The `(_)` sub
     prototype is the official way to do so, however there are sometimes
     disadvantages to this; in particular it can only appear as the final
     required argument in a prototype, and there is no way of the sub
     differentiating between an explicitly passed argument and $_.
 
-    This caused me problems with Scalar::Does, because I wanted to enable
-    the "does" function to be called as either:
+    This caused me problems with Scalar::Does, because I wanted to enable the
+    `does` function to be called as either:
 
        does($thing, $role);
        does($role);  # assumes $thing = $_
 
-    With "_" in the prototype, $_ was passed to the function at the end of
-    its argument list; effectively "does($role, $thing)", making it
-    impossible to tell which argument was the role.
+    With `_` in the prototype, $_ was passed to the function at the end of its
+    argument list; effectively `does($role, $thing)`, making it impossible to
+    tell which argument was the role.
 
-    Enter "lexical::underscore" which allows you to access your caller's
+    Enter `lexical::underscore` which allows you to access your caller's
     lexical $_ variable as easily as:
 
        ${lexical::underscore()}
@@ -59,11 +59,11 @@ DESCRIPTION
     returns the global $_.
 
   Technical Details
-    The "lexical::underscore" function returns a scalar reference to either
-    a lexical $_ variable somewhere up the call stack (using PadWalker
-    magic), or to the global $_ if there was no lexical version.
+    The `lexical::underscore` function returns a scalar reference to either a
+    lexical $_ variable somewhere up the call stack (using PadWalker magic),
+    or to the global $_ if there was no lexical version.
 
-    Wrapping "lexical::underscore" in "${ ... }" dereferences the scalar
+    Wrapping `lexical::underscore` in `${ ... }` dereferences the scalar
     reference, allowing you to access (and even assign to) it.
 
 BUGS
@@ -79,8 +79,8 @@ AUTHOR
 COPYRIGHT AND LICENCE
     This software is copyright (c) 2012 by Toby Inkster.
 
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
+    This is free software; you can redistribute it and/or modify it under the
+    same terms as the Perl 5 programming language system itself.
 
 DISCLAIMER OF WARRANTIES
     THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED

@@ -1,33 +1,35 @@
 ---
 abstract: "access your caller's lexical underscore"
 author:
-  - 'Toby Inkster <tobyink@cpan.org>'
+  - 'Toby Inkster (TOBYINK) <tobyink@cpan.org>'
 build_requires:
-  ExtUtils::MakeMaker: 6.59
-  Test::More: 0.61
+  Test::More: '0.61'
 configure_requires:
-  ExtUtils::MakeMaker: 6.59
-distribution_type: module
-dynamic_config: 1
-generated_by: 'Module::Install version 1.06'
+  ExtUtils::MakeMaker: '6.17'
+dynamic_config: 0
+generated_by: 'Moose::Meta::Class::__ANON__::SERIAL::6 version , CPAN::Meta::Converter version 2.140640'
 keywords: []
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
-module_name: lexical::underscore
+  version: '1.4'
 name: lexical-underscore
 no_index:
   directory:
+    - eg
+    - examples
     - inc
     - t
     - xt
-requires:
-  PadWalker: 0
-  perl: 5.8.0
+optional_features: {}
+provides:
+  lexical::underscore:
+    file: lib/lexical/underscore.pm
+    version: '0.002'
 resources:
+  X_identifier: http://purl.org/NET/cpan-uri/dist/lexical-underscore/project
   bugtracker: http://rt.cpan.org/Dist/Display.html?Queue=lexical-underscore
   homepage: https://metacpan.org/release/lexical-underscore
   license: http://dev.perl.org/licenses/
-  repository: https://bitbucket.org/tobyink/p5-lexical-underscore
-version: 0.001
+  repository: git://github.com/tobyink/p5-lexical-underscore.git
+version: '0.002'
