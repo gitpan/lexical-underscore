@@ -6,8 +6,8 @@ my $EUMM = eval( $ExtUtils::MakeMaker::VERSION );
 my $meta = {
   "abstract"       => "access your caller's lexical underscore",
   "author"         => ["Toby Inkster (TOBYINK) <tobyink\@cpan.org>"],
-  "dynamic_config" => 0,
-  "generated_by"   => "Moose::Meta::Class::__ANON__::SERIAL::6 version , CPAN::Meta::Converter version 2.140640",
+  "dynamic_config" => 1,
+  "generated_by"   => "Dist::Inkt::Profile::TOBYINK version 0.021, CPAN::Meta::Converter version 2.140640",
   "keywords"       => [],
   "license"        => ["perl_5"],
   "meta-spec"      => {
@@ -18,10 +18,11 @@ my $meta = {
   "no_index"       => { directory => ["eg", "examples", "inc", "t", "xt"] },
   "prereqs"        => {
                         configure => { requires => { "ExtUtils::MakeMaker" => 6.17 } },
+                        runtime => { requires => { perl => "5.008000" } },
                         test => { requires => { "Test::More" => 0.61 } },
                       },
   "provides"       => {
-                        "lexical::underscore" => { file => "lib/lexical/underscore.pm", version => 0.002 },
+                        "lexical::underscore" => { file => "lib/lexical/underscore.pm", version => 0.003 },
                       },
   "release_status" => "stable",
   "resources"      => {
@@ -35,12 +36,16 @@ my $meta = {
                                           url  => "git://github.com/tobyink/p5-lexical-underscore.git",
                                           web  => "https://github.com/tobyink/p5-lexical-underscore",
                                         },
-                        X_identifier => "http://purl.org/NET/cpan-uri/dist/lexical-underscore/project",
+                        x_identifier => "http://purl.org/NET/cpan-uri/dist/lexical-underscore/project",
                       },
-  "version"        => 0.002,
+  "version"        => 0.003,
 };
 
 my %dynamic_config;
+do {
+$meta->{prereqs}{runtime}{requires}{'PadWalker'} = 0 if $] >= 5.009;
+
+};
 
 my %WriteMakefileArgs = (
 	ABSTRACT   => $meta->{abstract},
